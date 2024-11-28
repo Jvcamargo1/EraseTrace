@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Limpa Histórico Seletivo</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      margin-top: 0;
+      color: #333;
+    }
+    #sitesList {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    .site-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      position: relative;
+    }
+    .site-item input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .site-item .secret-button {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f0f0f0;
+      border: none;
+      cursor: pointer;
+      padding: 2px 5px;
+      font-size: 12px;
+    }
+    .site-item:hover .secret-button {
+      display: inline-block;
+    }
+    #newSite {
+      width: 70%;
+      padding: 5px;
+      margin-right: 5px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #status {
+      margin-top: 10px;
+      color: #666;
+    }
+    #developer {
+      font-size: 10px;
+      color: #999;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Sites para apagar do histórico</h2>
+  <div id="sitesList"></div>
+  <input type="text" id="newSite" placeholder="Digite um novo site">
+  <button id="addSite">Adicionar</button>
+  <button id="clearHistory">Apagar do Histórico</button>
+  <div id="status"></div>
+  <div id="developer">Developed by JVC.</div>
+  <script src="popup.js"></script>
+</body>
+</html>

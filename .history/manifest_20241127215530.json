@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "EraseTrace",
+    "version": "1.0",
+    "description": "Uma extensão para apagar o histórico de navegação.",
+    "icons": {
+      "16": "assets/images/erasetrace_ico16.png",
+      "48": "assets/images/erasetrace_ico48.png",
+      "128": "assets/images/icon128.png"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "assets/images/icon48.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "history",
+      "storage"
+    ],
+    "host_permissions": [
+      "<all_urls>"
+    ]
+  }
