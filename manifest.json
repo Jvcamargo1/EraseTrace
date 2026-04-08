@@ -17,7 +17,8 @@
     },
     "permissions": [
       "history",
-      "storage"
+      "storage",
+      "cookies"
     ],
     "host_permissions": [
       "<all_urls>"

@@ -71,8 +71,11 @@ document.addEventListener('DOMContentLoaded', function() {
       const checkedSites = Array.from(sitesListDiv.querySelectorAll('input[type="checkbox"]:checked'))
         .map(checkbox => checkbox.nextElementSibling.textContent);
   
+      const deleteCookiesCheckbox = document.getElementById('deleteCookies');
+      const deleteCookies = deleteCookiesCheckbox ? deleteCookiesCheckbox.checked : false;
+
       if (checkedSites.length > 0) {
-        chrome.runtime.sendMessage({action: "clearHistory", sites: checkedSites}, function(response) {
+        chrome.runtime.sendMessage({action: "clearHistory", sites: checkedSites, deleteCookies: deleteCookies}, function(response) {
           statusDiv.textContent = response.message;
           setTimeout(() => { statusDiv.textContent = ''; }, 2000);
         });
@@ -82,16 +85,3 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-
-  document.getElementById('clearHistory').addEventListener('click', function() {
-    const sites = []; // Obtenha a lista de sites do seu código existente
-    const deleteCookies = document.getElementById('deleteCookies').checked;
-
-    chrome.runtime.sendMessage({
-        action: "clearHistory",
-        sites: sites,
-        deleteCookies: deleteCookies
-    }, function(response) {
-        document.getElementById('status').textContent = response.message;
-    });
-});
